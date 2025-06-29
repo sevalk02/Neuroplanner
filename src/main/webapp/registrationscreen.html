@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="nl">
+
+<head>
+
+    <meta charset="UTF-8">
+    <title>Registreren</title>
+    <link rel="stylesheet" href="css/register.css">
+
+</head>
+<body>
+<div class="register-container">
+<h2>Registreren</h2>
+<form id="registerForm">
+    <label>Gebruikersnaam: <input type="text" id="username" required></label><br>
+    <label>Wachtwoord: <input type="password" id="password" required></label><br>
+    <label>Voornaam: <input type="text" id="firstname" required></label><br>
+    <label>Achternaam: <input type="text" id="lastname" required></label><br>
+    <label>Rol:
+        <select id="rol" required>
+            <option value="GEBRUIKER">Gebruiker</option>
+            <option value="BEHEERDER">Beheerder</option>
+        </select>
+    </label><br>
+    <button type="submit">Registreren</button>
+</form>
+<p id="feedback" style="color: red;"></p>
+</div>
+
+<script src="/NeuroplannerHU/javascript/register.js"></script>
+</body>
+</html>

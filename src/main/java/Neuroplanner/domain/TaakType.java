@@ -1,0 +1,5 @@
+package Neuroplanner.domain;
+
+public enum TaakType {
+    SCHOOL, WERK, ZELFZORG, SOCIAAL, VERPLICHT, ONTSPANNING, PAUZE, CREATIEF, RUST, HUISHOUDEN, OVERIG
+}
