@@ -1,7 +1,4 @@
-# Docs for the Azure Web Apps Deploy action: https://github.com/Azure/webapps-deploy
-# More GitHub Actions for Azure: https://github.com/Azure/actions
-
-name: Build and deploy WAR app to Azure Web App - Neuroplanner
+name: Build and Deploy to Azure Web App - Neuroplanner
 
 on:
   push:
@@ -12,52 +9,40 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    permissions:
-      contents: read #This is required for actions/checkout
-
     steps:
-      - uses: actions/checkout@v4
+      - name: 📥 Checkout code
+        uses: actions/checkout@v4
 
-      - name: Set up Java version
+      - name: ☕ Setup Java
         uses: actions/setup-java@v4
         with:
-          java-version: '17'
           distribution: 'microsoft'
+          java-version: '17'
 
-      - name: Build with Maven
+      - name: 🛠️ Build WAR with Maven
         run: mvn clean install
 
-      - name: Upload artifact for deployment job
+      - name: 📂 Toon target-map
+        run: ls -lh target/
+
+      - name: 📤 Upload WAR artifact
         uses: actions/upload-artifact@v4
         with:
           name: java-app
-          path: '${{ github.workspace }}/target/*.war'
+          path: target/ROOT.war
 
   deploy:
     runs-on: ubuntu-latest
-    needs: build 
-    permissions:
-      id-token: write #This is required for requesting the JWT
-      contents: read #This is required for actions/checkout
-
+    needs: build
     steps:
-      - name: Download artifact from build job
+      - name: 📥 Download WAR artifact
         uses: actions/download-artifact@v4
         with:
           name: java-app
-      
-      - name: Login to Azure
-        uses: azure/login@v2
-        with:
-          client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID_F75B79A7616F4F8AA9D44D1649703843 }}
-          tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_3987F9E8B8BA407F8C3783197AE4389E }}
-          subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_877243F43EA84CC783149A181E27BB32 }}
 
-      - name: Deploy to Azure Web App
-        id: deploy-to-webapp
+      - name: 🚀 Deploy to Azure Web App
         uses: azure/webapps-deploy@v3
         with:
           app-name: 'Neuroplanner'
-          slot-name: 'Production'
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE }}
           package: java-app/ROOT.war
-          
