@@ -43,6 +43,6 @@ jobs:
       - name: 🚀 Deploy to Azure Web App
         uses: azure/webapps-deploy@v3
         with:
-          app-name: 'Neuroplanner'
+          app-name: 'neuroplanner-bkg8e7ajgeemfpfz'
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE }}
           package: java-app/ROOT.war
