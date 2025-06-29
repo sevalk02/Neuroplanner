@@ -4,7 +4,7 @@ document.getElementById("loginForm").addEventListener("submit", async function (
     const username = document.getElementById("username").value;
     const password = document.getElementById("password").value;
 
-    const response = await fetch("/NeuroplannerHU/restservices/auth/login", {
+    const response = await fetch("/restservices/auth/login", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ gebruikersnaam: username, wachtwoord: password })
