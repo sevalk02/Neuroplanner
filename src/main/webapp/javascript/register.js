@@ -7,7 +7,7 @@ document.getElementById("registerForm").addEventListener("submit", async functio
     const achternaam = document.getElementById("lastname").value;
     const rol = document.getElementById("rol").value;
 
-    const response = await fetch("/NeuroplannerHU/restservices/auth/register", {
+    const response = await fetch("restservices/auth/register", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
