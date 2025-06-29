@@ -25,7 +25,7 @@ function toonWelkom() {
 
 async function haalTakenOp() {
     const user = JSON.parse(localStorage.getItem("user"));
-    const response = await fetch("/NeuroplannerHU/restservices/taak", {
+    const response = await fetch("restservices/taak", {
         headers: { "X-Gebruikersnaam": user.gebruikersnaam }
     });
     taken = await response.json();
@@ -116,7 +116,7 @@ function toonTakenLijst() {
 }
 async function verwijderTaak(id) {
     const user = JSON.parse(localStorage.getItem("user"));
-    await fetch(`/NeuroplannerHU/restservices/taak/${id}`, {
+    await fetch(`restservices/taak/${id}`, {
         method: "DELETE",
         headers: {
             "X-Gebruikersnaam": user.gebruikersnaam
@@ -144,7 +144,7 @@ document.getElementById("taakForm").addEventListener("submit", async function(e)
     };
     console.log("Verstuurde data:", JSON.stringify(data));
 
-    await fetch("/NeuroplannerHU/restservices/taak", {
+    await fetch("restservices/taak", {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
