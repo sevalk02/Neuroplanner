@@ -85,6 +85,11 @@
             <artifactId>slf4j-nop</artifactId>
             <version>1.7.36</version>
         </dependency>
+        <dependency>
+            <groupId>com.fasterxml.jackson.datatype</groupId>
+            <artifactId>jackson-datatype-jsr310</artifactId>
+            <version>2.15.3</version> <!-- of dezelfde versie als je andere Jackson-libraries -->
+        </dependency>
     </dependencies>
 
     <build>

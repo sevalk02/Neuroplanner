@@ -10,21 +10,17 @@ public class Taak {
     private String omschrijving;
     private LocalDateTime startTijd;
     private LocalDateTime eindTijd;
-    private boolean voltooid;
+    private int id;
     private Gebruiker gebruiker;
 
     public Taak(String titel, String omschrijving,TaakType type, TaakKleur kleur, Gebruiker gebruiker) {
         this.titel = titel;
+        this.omschrijving = omschrijving;
         this.type = type;
         this.kleur = kleur;
         this.gebruiker = gebruiker;
     }
-    public boolean isVoltooid() {
-        return voltooid;
-    }
-
-    public void setVoltooid(boolean voltooid) {
-        this.voltooid = voltooid;
+    public Taak() {
     }
     public String getTitel() {
         return titel;
@@ -73,6 +69,22 @@ public class Taak {
     public void setGebruiker(Gebruiker gebruiker){
         this.gebruiker = gebruiker;
     }
+
+    public String getOmschrijving() {
+        return omschrijving;
+    }
+
+    public void setOmschrijving(String omschrijving) {
+        this.omschrijving = omschrijving;
+    }
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

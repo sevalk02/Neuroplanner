@@ -5,10 +5,11 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 
 public class DatabaseConnector {
+
     private static final String connectionUrl =
-            "jdbc:sqlserver://neuroplanner-server.database.windows.net:1433;" +
+            "jdbc:sqlserver://neuroplanner.database.windows.net:1433;" +
                     "database=neuroplannerdb;" +
-                    "user=seval@neuroplanner-server;" +
+                    "user=seval@neuroplanner;" +
                     "password=Neuroplanner123!;" +
                     "encrypt=true;" +
                     "trustServerCertificate=false;" +
@@ -23,7 +24,5 @@ public class DatabaseConnector {
         }
         return DriverManager.getConnection(connectionUrl);
     }
-
-
 
 }

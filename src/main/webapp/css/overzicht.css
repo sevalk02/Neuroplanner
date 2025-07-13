@@ -38,8 +38,9 @@ h1, h2 {
 }
 
 .takenlijst {
-    width: 250px;
+    width: 300px;
     overflow-y: auto;
+    max-height: 90vh;
 }
 
 .calendar-nav {
@@ -98,6 +99,8 @@ input, select, textarea, button {
     padding: 10px;
     margin-bottom: 10px;
     border-left: 4px solid black;
+    background-color: #f9f9f9;
+    min-height: 100px;
 }
 .btn {
     display: inline-block;
@@ -115,3 +118,20 @@ input, select, textarea, button {
 .btn:hover {
     background-color: #3367d6;
 }
+body.dark-mode {
+    background-color: #121212;
+    color: #f0f0f0;
+}
+.popup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1000;
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.3);
+}
+
+

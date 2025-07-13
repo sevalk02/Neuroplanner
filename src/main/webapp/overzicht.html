@@ -18,7 +18,68 @@
                 <option>HUISHOUDEN</option><option>OVERIG</option>
             </select>
             <label for="kleur">Kleur</label>
-            <select id="kleur" required>
+            <select id="kleur" required></select>
+            <label for="titel">Titel</label>
+            <input type="text" id="titel" required>
+            <label for="omschrijving">Omschrijving</label>
+            <textarea id="omschrijving"></textarea>
+            <label for="startTijd">Starttijd</label>
+            <input type="datetime-local" id="startTijd" required>
+            <label for="eindTijd">Eindtijd</label>
+            <input type="datetime-local" id="eindTijd" required>
+            <button type="submit" class="btn">Voeg Taak Toe</button>
+        </form>
+        <div id="instellingenSectie" class="instellingen">
+            <h2>Overzicht aanpassen</h2>
+
+            <label><input type="checkbox" id="donkereModus"> Donkere modus</label><br>
+            <label><input type="checkbox" id="toonKalender"> Toon kalender</label><br>
+            <label><input type="checkbox" id="toonTakenlijst"> Toon takenlijst</label><br>
+
+            <label for="weergaveSelect">Weergave:</label>
+            <select id="weergaveSelect">
+                <option value="dag">Dag</option>
+                <option value="week">Week</option>
+                <option value="maand">Maand</option>
+            </select><br><br>
+
+            <button class="btn" onclick="slaInstellingenOp()">Instellingen opslaan</button>
+        </div>
+    </div>
+
+    <div class="calendar-section">
+        <header>
+            <h2 id="welkom">Welkom!</h2>
+            <button id="logoutBtn" class="btn">Uitloggen</button>
+            <div class="calendar-nav">
+                <button onclick="veranderDatum(-1)">←</button>
+                <h1 id="maandTitel">Maandoverzicht</h1>
+                <button onclick="veranderDatum(1)">→</button>
+            </div>
+        </header>
+        <div class="calendar" id="calendar"></div>
+    </div>
+    <div class="takenlijst">
+        <h2>Taken</h2>
+        <label for="kleurFilter">Filter op kleur:</label>
+        <select id="kleurFilter" class="btn"></select>
+        <div id="takenOverzicht"></div>
+    </div>
+</div>
+<div id="bewerkenPopup" class="popup" style="display:none;">
+    <div class="popup-content">
+        <h2>Taak Aanpassen</h2>
+        <form id="bewerkenForm">
+            <input type="hidden" id="bewerkenId">
+            <label for="bewerkenType">Type</label>
+            <select id="bewerkenType" required>
+                <option>SCHOOL</option><option>WERK</option><option>ZELFZORG</option>
+                <option>SOCIAAL</option><option>VERPLICHT</option><option>ONTSPANNING</option>
+                <option>PAUZE</option><option>CREATIEF</option><option>RUST</option>
+                <option>HUISHOUDEN</option><option>OVERIG</option>
+            </select>
+            <label for="bewerkenKleur">Kleur</label>
+            <select id="bewerkenKleur" required>
                 <option value="BLAUW" style="background-color: #2196F3; color: white;">Blauw</option>
                 <option value="BRUIN" style="background-color: #795548; color: white;">Bruin</option>
                 <option value="GEEL" style="background-color: #FFEB3B; color: black;">Geel</option>
@@ -31,35 +92,20 @@
                 <option value="ROZE" style="background-color: #E91E63; color: white;">Roze</option>
                 <option value="WIT" style="background-color: #FFFFFF; color: black;">Wit</option>
             </select>
-            <label for="titel">Titel</label>
-            <input type="text" id="titel" required>
-            <label for="omschrijving">Omschrijving</label>
-            <textarea id="omschrijving"></textarea>
-            <label for="startTijd">Starttijd</label>
-            <input type="datetime-local" id="startTijd" required>
-            <label for="eindTijd">Eindtijd</label>
-            <input type="datetime-local" id="eindTijd" required>
-            <button type="submit" class="btn">Voeg Taak Toe</button>
+            <label for="bewerkenTitel">Titel</label>
+            <input type="text" id="bewerkenTitel" required>
+            <label for="bewerkenOmschrijving">Omschrijving</label>
+            <textarea id="bewerkenOmschrijving"></textarea>
+            <label for="bewerkenStartTijd">Starttijd</label>
+            <input type="datetime-local" id="bewerkenStartTijd" required>
+            <label for="bewerkenEindTijd">Eindtijd</label>
+            <input type="datetime-local" id="bewerkenEindTijd" required>
+            <button type="submit" class="btn">Opslaan</button>
+            <button type="button" class="btn" onclick="sluitPopup()">Annuleren</button>
         </form>
     </div>
-
-    <div class="calendar-section">
-        <header>
-            <h2 id="welkom">Welkom!</h2>
-            <div class="calendar-nav">
-                <button onclick="veranderMaand(-1)">←</button>
-                <h1 id="maandTitel">Maandoverzicht</h1>
-                <button onclick="veranderMaand(1)">→</button>
-            </div>
-        </header>
-        <div class="calendar" id="calendar"></div>
-    </div>
-
-    <div class="takenlijst">
-        <h2>Taken</h2>
-        <div id="takenOverzicht"></div>
-    </div>
 </div>
+
 
 <script src="/NeuroplannerHU/javascript/overzicht.js"></script>
 </body>
